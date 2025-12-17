@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<robot name="quad_rods_with_props">
+
+  <link name="base_cuboid">
+    <visual>
+      <geometry>
+        <box size="0.6 0.3 0.2"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="rod_1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.25"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="rod_2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.25"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="rod_3">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.25"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="rod_4">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.25"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="zrod_1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="zrod_2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="zrod_3">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="zrod_4">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="prop_1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.01"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="prop_2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.01"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="prop_3">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.01"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="prop_4">
+    <visual>
+      <geometry>
+        <cylinder radius="0.08" length="0.01"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="base_to_rod_1" type="fixed">
+    <parent link="base_cuboid"/>
+    <child link="rod_1"/>
+    <origin xyz="0.3 0.15 0.1" rpy="-0.4 0.4 0"/>
+  </joint>
+
+  <joint name="base_to_rod_2" type="fixed">
+    <parent link="base_cuboid"/>
+    <child link="rod_2"/>
+    <origin xyz="-0.3 0.15 0.1" rpy="-0.4 -0.4 0"/>
+  </joint>
+
+  <joint name="base_to_rod_3" type="fixed">
+    <parent link="base_cuboid"/>
+    <child link="rod_3"/>
+    <origin xyz="0.3 -0.15 0.1" rpy="0.4 0.4 0"/>
+  </joint>
+
+  <joint name="base_to_rod_4" type="fixed">
+    <parent link="base_cuboid"/>
+    <child link="rod_4"/>
+    <origin xyz="-0.3 -0.15 0.1" rpy="0.4 -0.4 0"/>
+  </joint>
+
+  <joint name="rod_to_zrod_1" type="fixed">
+    <parent link="rod_1"/>
+    <child link="zrod_1"/>
+    <origin xyz="0 0 0.125" rpy="0.4 -0.4 0"/>
+  </joint>
+
+  <joint name="rod_to_zrod_2" type="fixed">
+    <parent link="rod_2"/>
+    <child link="zrod_2"/>
+    <origin xyz="0 0 0.125" rpy="0.4 0.4 0"/>
+  </joint>
+
+  <joint name="rod_to_zrod_3" type="fixed">
+    <parent link="rod_3"/>
+    <child link="zrod_3"/>
+    <origin xyz="0 0 0.125" rpy="-0.4 -0.4 0"/>
+  </joint>
+
+  <joint name="rod_to_zrod_4" type="fixed">
+    <parent link="rod_4"/>
+    <child link="zrod_4"/>
+    <origin xyz="0 0 0.125" rpy="-0.4 0.4 0"/>
+  </joint>
+
+  <joint name="zrod_to_prop_1" type="continuous">
+    <parent link="zrod_1"/>
+    <child link="prop_1"/>
+    <origin xyz="0 0 0.05"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="zrod_to_prop_2" type="continuous">
+    <parent link="zrod_2"/>
+    <child link="prop_2"/>
+    <origin xyz="0 0 0.05"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="zrod_to_prop_3" type="continuous">
+    <parent link="zrod_3"/>
+    <child link="prop_3"/>
+    <origin xyz="0 0 0.05"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="zrod_to_prop_4" type="continuous">
+    <parent link="zrod_4"/>
+    <child link="prop_4"/>
+    <origin xyz="0 0 0.05"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  
+</robot>
